@@ -8,7 +8,7 @@ let gdxDevice = "";
     const selectDeviceBtn = document.querySelector('#select_device');
     const selectSensorsBtn = document.querySelector('#select_sensors');
     const output = document.querySelector('#output');
-    const error = document.querySelector('#error');
+/*    const error = document.querySelector('#error');
 
     selectSensorsBtn.style.visibility='hidden';
 
@@ -17,7 +17,7 @@ let gdxDevice = "";
       error.innerHTML += `<p>This browser does not have support yet. <a href="https://webbluetoothcg.github.io/web-bluetooth/">More information</a></p>`;
       selectDeviceBtn.style.visibility='hidden';
     }
-   
+*/   
     const selectDevice = async () => {
       try {
         const bleDevice = await navigator.bluetooth.requestDevice({
@@ -27,15 +27,17 @@ let gdxDevice = "";
         // create the device and open it, but don't start measurements
         gdxDevice = await godirect.createDevice(bleDevice, {open:true, startMeasurements:false});
 
-        selectSensorsBtn.style.visibility='visible';
+ //       selectSensorsBtn.style.visibility='visible';
         selectDeviceBtn.style.visibility='hidden';
 
-        sensors.textContent = `Connected to ` + gdxDevice.name;
-        sensors.textContent += `\n\n Available sensors: `;
+/*         sensors.textContent = `Connected to ` + gdxDevice.name;
+       sensors.textContent += `\n\n Available sensors: `;
 
         gdxDevice.sensors.forEach(sensor => {
            sensors.textContent += `\n ${sensor.number}: ${sensor.name} units: ${sensor.unit}`  ;
         }); 
-    
+  */  
       } catch (err) {
         console.error(err);
+      }
+    };
