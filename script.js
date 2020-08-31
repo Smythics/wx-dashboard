@@ -1,17 +1,11 @@
-/* If you're feeling fancy you can add interactivity 
-    to your site with Javascript */
 
-// prints "hi" in the browser's dev tools console
-//console.log("hi");
-<script src="https://unpkg.com/@vernier/godirect/dist/godirect.min.umd.js"></script>
 let gdxDevice = "";
     const selectDeviceBtn = document.querySelector('#select_device');
-    const selectSensorsBtn = document.querySelector('#select_sensors');
     const output = document.querySelector('#output');
 
     const selectDevice = async () => {
       try {
-  const gdxDevice = await godirect.selectDevice(); 
+  gdxDevice = await godirect.selectDevice(); 
         // print name, serial number, order code and measurement period
   output.textContent = `\n Connected to `+gdxDevice.name;
    //print serial number
