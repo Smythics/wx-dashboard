@@ -1,3 +1,5 @@
+// import gdx library 
+<script src="https://unpkg.com/@vernier/godirect/dist/godirect.min.umd.js"></script>
 
 //let gdxDevice = "";
     const selectDeviceBtn = document.querySelector('#select_device');
@@ -19,3 +21,4 @@ wait for battery level and battery state and print
         console.error(err);
       }
     };
+    selectDeviceBtn.addEventListener('click', selectDevice);
