@@ -7,8 +7,8 @@
         const gdxDevice = await godirect.selectDevice(); 
         // print name, serial number, order code and measurement period
         output.textContent = `\n Connected to `+gdxDevice.name;
-        output.textContent += `\n Order Code: `+gdxDevice.orderCode;
-        output.textContent += `\n Typical Measurement Period: `+gdxDevice.measurementPeriod + ` ms/sample`;
+//        output.textContent += `\n Order Code: `+gdxDevice.orderCode;
+//        output.textContent += `\n Typical Measurement Period: `+gdxDevice.measurementPeriod + ` ms/sample`;
 
 //      wait for battery level and battery state and print
         output.textContent += `\n Battery Level: `+await gdxDevice.getBatteryLevel() +`%`;
