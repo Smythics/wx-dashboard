@@ -11,8 +11,8 @@
 //        output.textContent += `\n Typical Measurement Period: `+gdxDevice.measurementPeriod + ` ms/sample`;
 
 //      wait for battery level and battery state and print
-        output.textContent += `\n Battery Level: `+await gdxDevice.getBatteryLevel() +`%`;
-        output.textContent += `\n Charging: ` +(await gdxDevice.getChargingState() === 1 ? `yes` : `no`);
+//        output.textContent += `\n Battery Level: `+await gdxDevice.getBatteryLevel() +`%`;
+//        output.textContent += `\n Charging: ` +(await gdxDevice.getChargingState() === 1 ? `yes` : `no`);
 
       } catch (err) {
         console.error(err);
