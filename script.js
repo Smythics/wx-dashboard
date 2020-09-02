@@ -1,5 +1,3 @@
-
-//let gdxDevice = "";
     const selectDeviceBtn = document.querySelector('#select_device');
     const output = document.querySelector('#output');
     const selectDevice = async () => {
