@@ -2,12 +2,16 @@
 
 body {
   font-family: helvetica, arial, sans-serif;
-  color: #ff5c5c;
-    background
-  margin: 2em;
+  color: #aa00aa;
+  margin: 200px;
 }
 
 h1 {
   font-style: italic;
-  color: #373fff;
+  color: #007580;
+  font-weight: bold;
+  font-family: "Lucida Grande", fantasy, sans-serif;
+  font-size: 60px;
+  text-align: center;
+
 }
