@@ -7,6 +7,7 @@ body {
 }
 
 h1 {
+
   font-style: italic;
   color: #007580;
   font-weight: bold;
@@ -17,11 +18,9 @@ h1 {
 
 button {
 background-color: lightgray;
+text-align:center;
 color:green;
 padding:15px 32px;
-text-align:center;
-display: inline-block;
 font-size: 16px;
 margin: 4px 2px;
-cursor: pointer;
 }
