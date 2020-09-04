@@ -25,3 +25,12 @@ padding:15px 32px;
 font-size: 16px;
 margin: 4px 2px;
 }
+
+span{
+  font-weight: bold;
+  font-size: 25 px;
+  width: 30px;
+  border: 5px solid black;
+  padding: 50px;
+  margin: 20px;
+}
