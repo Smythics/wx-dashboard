@@ -3,16 +3,16 @@
 body {
   font-family: helvetica, arial, sans-serif;
   color: #aa00aa;
-  background-color: 
+  background-color: #33bbbb;
   margin: 20px;
 }
 
 h1 {
 
-  font-style: italic;
-  color: #007580;
+  font-style: normal;
+  color: white;
   font-weight: bold;
-  font-family: georgia, fantasy, sans-serif;
+  font-family: impact, fantasy, sans-serif;
   font-size: 40px;
   text-align: center;
 }
@@ -20,7 +20,7 @@ h1 {
 button {
 background-color: lightgray;
 text-align:center;
-color:green;
+color:black;
 padding:15px 32px;
 font-size: 16px;
 margin: 4px 2px;
