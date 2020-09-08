@@ -1,7 +1,7 @@
 /* CSS files add styling rules to your content */
 
 body {
-  font-family: helvetica, arial, sans-serif;
+  font-family: Montserrat, arial, sans-serif;
   color: black;
   background-color: #66bac0;
   margin: 20px;
@@ -10,7 +10,8 @@ body {
 h1 {
 
   font-style: normal;
-  color: white;
+  color: #007377;
+  background-color:white;
   font-weight: bold;
   font-family: Mr Eaves Mod OT Bold,impact, fantasy, sans-serif;
   font-size: 40px;
