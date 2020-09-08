@@ -3,7 +3,7 @@
 body {
   font-family: helvetica, arial, sans-serif;
   color: black;
-  background-color: #33bbbb;
+  background-color: #66bac0;
   margin: 20px;
 }
 
@@ -12,13 +12,13 @@ h1 {
   font-style: normal;
   color: white;
   font-weight: bold;
-  font-family: impact, fantasy, sans-serif;
+  font-family: Mr Eaves Mod OT Bold,impact, fantasy, sans-serif;
   font-size: 40px;
   text-align: center;
 }
 
 button {
-background-color: lightgray;
+background-color: #e6e6e4;
 text-align:center;
 color:black;
 padding:15px 32px;
