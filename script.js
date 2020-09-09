@@ -15,8 +15,7 @@
         enabledSensors.forEach(sensor => {
 //trigger a set of actions to occur whenever the value the sensor detects changes
           sensor.on('value-changed', (sensor) => {
-            console.log("sensors are enabled");
-            document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(3)} ${sensor.unit}`;
+            document.getElementById('data').innerHTML = `\n ${sensor.value.toFixed(3)} ${sensor.unit}`;
           });
         });
 
