@@ -6,7 +6,7 @@ let gdxDevice;
 
 const selectDevice = async () => {
   try {
-    const gdxDevice = await godirect.selectDevice();
+    gdxDevice = await godirect.selectDevice();
     // print name and serial number
     output.textContent = `\n Connected to ` + gdxDevice.name;
 
@@ -33,8 +33,8 @@ const selectDevice = async () => {
 };
 
 const cutDevice = async () => {
-  gdxDevice = gdxDevice.close();
+  gdxDevice.close();
   };
 
-selectDeviceBtn.addEventListener("click", selectDevice);
+selectDeviceBtn.addEventListener("click", selectDevice);//opens selection window displaying available Go Direct sensors
 cutDeviceBtn.addEventListener("click", cutDevice); //disconnects sensor device
