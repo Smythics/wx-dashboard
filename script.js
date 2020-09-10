@@ -1,5 +1,8 @@
     const selectDeviceBtn = document.querySelector('#select_device');
     const output = document.querySelector('#output');
+    const cutDeviceBtn = document.querySelector("#cut_device");
+
+
     const selectDevice = async () => {
       try {
         const gdxDevice = await godirect.selectDevice(); 
@@ -16,6 +19,7 @@
 //trigger a set of actions to occur whenever the value the sensor detects changes
           sensor.on('value-changed', (sensor) => {
             document.getElementById('data').innerHTML = `\n ${sensor.value.toFixed(3)} ${sensor.unit}`;
+            console.log("sensor on");
           });
         });
 
@@ -24,6 +28,7 @@
       }
     };
 const cutDevice = async () => {
+  console.log("sensor off"); 
   gdxDevice.close();
 };
 
