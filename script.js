@@ -23,4 +23,9 @@
         console.error(err);
       }
     };
+const cutDevice = async () => {
+  gdxDevice.close();
+};
+
     selectDeviceBtn.addEventListener('click', selectDevice);
+    cutDeviceBtn.addEventListener("click", cutDevice);//disconnects sensor device
