@@ -29,12 +29,10 @@ const selectDevice = async () => {
     console.error(err);
   }
 };
+
 const cutDevice = async () => {
   gdxDevice.close();
-  sensor.on("value-changed", sensor => {
-    console.log("sensor off");
-  });
-};
+  };
 
 selectDeviceBtn.addEventListener("click", selectDevice);
 cutDeviceBtn.addEventListener("click", cutDevice); //disconnects sensor device
