@@ -32,6 +32,7 @@ const selectDevice = async () => {
 };
 
 const cutDevice = async () => {
+  const gdxDevice = await godirect.cutDevice();
   gdxDevice.close();
   };
 
