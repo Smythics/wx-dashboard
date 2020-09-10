@@ -19,17 +19,21 @@
 //trigger a set of actions to occur whenever the value the sensor detects changes
           sensor.on('value-changed', (sensor) => {
             document.getElementById('data').innerHTML = `\n ${sensor.value.toFixed(3)} ${sensor.unit}`;
+          sensor.on('value-changed', (sensor) => {
+
             console.log("sensor on");
           });
         });
-
-      } catch (err) {
+        }
+      catch (err) {
         console.error(err);
       }
-    };
+      };
 const cutDevice = async () => {
-  console.log("sensor off"); 
   gdxDevice.close();
+   sensor.on('value-changed', (sensor) => {
+      console.log("sensor off");
+      )}
 };
 
     selectDeviceBtn.addEventListener('click', selectDevice);
