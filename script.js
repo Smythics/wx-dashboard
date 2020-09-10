@@ -1,6 +1,7 @@
 const selectDeviceBtn = document.querySelector("#select_device");
 const output = document.querySelector("#output");
 const cutDeviceBtn = document.querySelector("#cut_device");
+const output2=document.querySelector("#output2");
 
 const selectDevice = async () => {
   try {
