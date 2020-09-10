@@ -2,6 +2,7 @@ const selectDeviceBtn = document.querySelector("#select_device");
 const output = document.querySelector("#output");
 const cutDeviceBtn = document.querySelector("#cut_device");
 const output2=document.querySelector("#output2");
+let gdxDevice;
 
 const selectDevice = async () => {
   try {
@@ -32,8 +33,7 @@ const selectDevice = async () => {
 };
 
 const cutDevice = async () => {
-  const gdxDevice = await godirect.cutDevice();
-  gdxDevice.close();
+  gdxDevice = gdxDevice.close();
   };
 
 selectDeviceBtn.addEventListener("click", selectDevice);
