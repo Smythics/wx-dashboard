@@ -1,7 +1,7 @@
 const selectDeviceBtn = document.querySelector("#select_device");
 const output = document.querySelector("#output");
 const cutDeviceBtn = document.querySelector("#cut_device");
-const output2=document.querySelector("#output2");
+const output2 = document.querySelector("#output2");
 let gdxDevice;
 
 const selectDevice = async () => {
@@ -19,7 +19,7 @@ const selectDevice = async () => {
     enabledSensors.forEach(sensor => {
       //trigger a set of actions to occur whenever the value the sensor detects changes
       sensor.on("value-changed", sensor => {
-        document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
+        document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed (2)} ${sensor.unit}`;
         sensor.on("value-changed", sensor => {
           console.log("sensor on");
         });
@@ -33,12 +33,12 @@ const selectDevice = async () => {
 const cutDevice = async () => {
   try {
     gdxDevice.close();
-  document.getElementById("data").innerHTML = "No Data";
-  output.textContent = `\n Disconnected from ` + gdxDevice.name;
-  }  catch (err) {
+    document.getElementById("data").innerHTML = "No Data";
+    output.textContent = `\n Disconnected from ` + gdxDevice.name;
+  } catch (err) {
     console.error(err);
   }
 };
 
-selectDeviceBtn.addEventListener("click", selectDevice);//opens selection window displaying available Go Direct sensors
+selectDeviceBtn.addEventListener("click", selectDevice); //opens selection window displaying available Go Direct sensors
 cutDeviceBtn.addEventListener("click", cutDevice); //disconnects sensor device
