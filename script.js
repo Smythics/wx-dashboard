@@ -31,10 +31,14 @@ const selectDevice = async () => {
 };
 
 const cutDevice = async () => {
-  gdxDevice.close();
+  try {
+    gdxDevice.close();
   document.getElementById("data").innerHTML = "No Data";
   output.textContent = `\n Disconnected from ` + gdxDevice.name;
-  };
+  }  catch (err) {
+    console.error(err);
+  }
+};
 
 selectDeviceBtn.addEventListener("click", selectDevice);//opens selection window displaying available Go Direct sensors
 cutDeviceBtn.addEventListener("click", cutDevice); //disconnects sensor device
