@@ -9,7 +9,8 @@ const selectDevice = async () => {
     gdxDevice = await godirect.selectDevice();
     // print name and serial number
     output.textContent = `\n Connected to ` + gdxDevice.name;
-
+    cutDeviceBtn.style.visibility = "visible";
+    selectDeviceBtn
     //turns on the Default sensor
     gdxDevice.enableDefaultSensors();
     //create a constant enabledSensors that correlates with the enabled sensors of the gdx Device
