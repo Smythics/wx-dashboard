@@ -1,18 +1,19 @@
-const selectDeviceBtn = document.querySelector("#select_device");
-const output = document.querySelector("#output");
-const cutDeviceBtn = document.querySelector("#cut_device");
-const sensorData = document.querySelector("#data");
-//const output2 = document.querySelector("#output2");
+//create constants that link to html elements
+const selectDeviceBtn = document.querySelector("#select_device"); //connect/select device button
+const output = document.querySelector("#output"); //
+const cutDeviceBtn = document.querySelector("#cut_device"); // disconnect device button
+const sensorData = document.querySelector("#data"); // sensor data
 let gdxDevice;
 
 const selectDevice = async () => {
   try {
+    //create GUI to select Go Direct Sensor
     gdxDevice = await godirect.selectDevice();
     // print name and serial number
     output.textContent = `\n Connected to ` + gdxDevice.name;
-    cutDeviceBtn.style.visibility = "visible";
-    selectDeviceBtn.style.visibility="hidden";
-    sensorData.style.visibility="visible";
+    cutDeviceBtn.style.visibility = "visible"; //make button visible to deselect sensor
+    selectDeviceBtn.style.visibility="hidden"; //hide select sensor button
+    sensorData.style.visibility="visible"; //make visible output from sensor
     //turns on the Default sensor
     gdxDevice.enableDefaultSensors();
     //create a constant enabledSensors that correlates with the enabled sensors of the gdx Device
