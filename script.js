@@ -1,7 +1,8 @@
 const selectDeviceBtn = document.querySelector("#select_device");
 const output = document.querySelector("#output");
 const cutDeviceBtn = document.querySelector("#cut_device");
-const output2 = document.querySelector("#output2");
+const sensorData = document.query
+//const output2 = document.querySelector("#output2");
 let gdxDevice;
 
 const selectDevice = async () => {
@@ -10,7 +11,7 @@ const selectDevice = async () => {
     // print name and serial number
     output.textContent = `\n Connected to ` + gdxDevice.name;
     cutDeviceBtn.style.visibility = "visible";
-    selectDeviceBtn
+    selectDeviceBtn.style.visibility="hidden";
     //turns on the Default sensor
     gdxDevice.enableDefaultSensors();
     //create a constant enabledSensors that correlates with the enabled sensors of the gdx Device
