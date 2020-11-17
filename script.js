@@ -7,14 +7,14 @@ let gdxDevice;
 
 const selectDevice = async () => {
   try {
-    //create GUI to select Go Direct Sensor
+    //selectDevice calls dialog. Waits for user selection
     gdxDevice = await godirect.selectDevice();
     // print name and serial number
     output.textContent = `\n Connected to ` + gdxDevice.name;
     cutDeviceBtn.style.visibility = "visible"; //make button visible to deselect sensor
     selectDeviceBtn.style.visibility="hidden"; //hide select sensor button
     sensorData.style.visibility="visible"; //make visible output from sensor
-    //turns on the Default sensor
+    //turns on the Default sensor(s)
     gdxDevice.enableDefaultSensors();
     //create a constant enabledSensors that correlates with the enabled sensors of the gdx Device
     const enabledSensors = gdxDevice.sensors.filter(s => s.enabled);
