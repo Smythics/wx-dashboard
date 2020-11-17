@@ -39,6 +39,9 @@ const cutDevice = async () => {
     gdxDevice.close();
     document.getElementById("data").innerHTML = "No Data";
     output.textContent = `\n Disconnected from ` + gdxDevice.name;
+    selectDeviceBtn.style.visibility="visible";
+    cutDeviceBtn.style.visibility="hidden";
+    sensorData.style.visibility="hidden"; 
   } catch (err) {
     console.error(err);
   }
