@@ -7,7 +7,7 @@
 
     <title>Vernier Weather Dashboard</title>
 
-    <!-- import the webpage's stylesheet -->
+    <!-- import the webpage's stylesheet format body, h1, button, & span-->
     <link rel="stylesheet" href="/style.css" />
 
     <!--import gdx library -->
@@ -25,8 +25,9 @@
     <!--create a button that will be used to choose from a list of available Go Direct sensors-->
     <button id="select_device">Select Go Direct Device</button>
     <button id="cut_device" style="visibility: hidden">Disconnect Go Direct Device</button>
-    <!--set formatting for output -->
+    <!--set formatting for output: sensor information to web page -->
     <pre id="output"></pre>
+    <!--set formatting for data: see .css file for details of "span" -->
     <span id="data" style="visibility: hidden"> </span>
     <!--<div id="channel_page">
        <br>
