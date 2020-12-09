@@ -15,9 +15,19 @@ const selectDevice = async () => {
     selectDeviceBtn.style.visibility="hidden"; //hide select sensor button
     sensorData.style.visibility="visible"; //make visible output from sensor
     //turns on the Default sensor(s)
-    gdxDevice.enableDefaultSensors();
+    //gdxDevice.enableDefaultSensors();
     //create a constant enabledSensors that correlates with the enabled sensors of the gdx Device
-    const enabledSensors = gdxDevice.sensors.filter(s => s.enabled);
+    output.textContent += `\n Availiable sensors: (type the channel number into the alert box) `;
+
+        // enable all sensor to print info
+    let enabledSensors = gdxDevice.sensors.filter(s => s.enabled = true);
+       
+      
+    enabledSensors.forEach(sensor => {
+    output.textContent += `\n\n Sensor: ${sensor.name} units: ${sensor.unit} channel: ${sensor.number} `  ;
+    });
+    
+    //const enabledSensors = gdxDevice.sensors.filter(s => s.enabled);
 
     //create a function that runs for each of the enabled sensor measurements
     enabledSensors.forEach(sensor => {
