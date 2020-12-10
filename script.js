@@ -37,7 +37,8 @@ function chooseSensor() {
     const channel = prompt("choose a sensor");
     const sensor = gdxDevice.getSensor(parseInt(channel));
     // set the desired sensor according to the channel selection
-    output.textContent += `\n\n Selected sensor: `;
+    //Note: "=" vs "+=" replaces existing text
+    output.textContent = `\n\n Selected sensor: ${sensor.name}`;
     sensor.setEnabled(true);
     sensor.on("value-changed", (sensor) => {
         document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(
