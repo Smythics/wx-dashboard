@@ -1,6 +1,6 @@
 //create constants that link to html elements
-const selectDeviceBtn = document.querySelector("#select_device"); //connect/select device button
-const output = document.querySelector("#output"); //
+const selectDeviceBtn = document.querySelector("#select_device"); //connect select device button to js variable
+const output = document.querySelector("#output"); // output
 const cutDeviceBtn = document.querySelector("#cut_device"); // disconnect device button
 const sensorData = document.querySelector("#data"); // sensor data
 let gdxDevice;
