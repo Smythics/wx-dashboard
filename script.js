@@ -34,15 +34,7 @@ const selectDevice = async () => {
 //create a function that runs for each of the enabled sensor measurements
 function showData() {
   enabledSensors.forEach(sensor => {
-    //trigger a set of actions to occur whenever the value the sensor detects changes
-    sensor.on("value-changed", sensor => {
-      document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(
-        2
-      )} ${sensor.unit}`;
-      sensor.on("value-changed", sensor => {
-        console.log("sensor on");
-      });
-    });
+
   });
 }
 
@@ -53,15 +45,15 @@ function chooseSensor() {
     const sensor = gdxDevice.getSensor(parseInt(channel));
     // set the desired sensor according to the channel selection
     output.textContent += `\n\n Selected sensor: `;
-    enabledSensors.forEach(sensor => {
-      if ((enabledSensors == channel)) {
-        // enable the selected sensor channel
-        sensor.setEnabled(true);
-      } else {
-        sensor.setEnabled(false);
-      }
+    enabledSensors.forEach(sensor => {    //trigger a set of actions to occur whenever the value the sensor detects changes
+    sensor.on("value-changed", sensor => {
+      document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(
+        2
+      )} ${sensor.unit}`;
+      sensor.on("value-changed", sensor => {
+        console.log("sensor on");
+      });
     });
-    showData();
   } catch (err) {
     console.error(err);
   }
