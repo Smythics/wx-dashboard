@@ -23,8 +23,16 @@ const selectDevice = async () => {
     enabledSensors.forEach(sensor => {
       output.textContent += `\n\n Sensor: ${sensor.name} units: ${sensor.unit} channel: ${sensor.number} `;
     });
+    // wait 3 seconds before starting the chooseSensor function
+    setTimeout(chooseSensor, 3000);
+    showData();
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-    //create a function that runs for each of the enabled sensor measurements
+/*    //create a function that runs for each of the enabled sensor measurements
+function showData() {
     enabledSensors.forEach(sensor => {
       //trigger a set of actions to occur whenever the value the sensor detects changes
       sensor.on("value-changed", sensor => {
@@ -36,12 +44,10 @@ const selectDevice = async () => {
         });
       });
     });
-    // wait 3 seconds before starting the chooseSensor function
-    setTimeout(chooseSensor, 3000);
-  } catch (err) {
-    console.error(err);
-  }
-};
+}
+
+    */
+
 function chooseSensor() {
   try {
     // prompt the user for a channel input choice
