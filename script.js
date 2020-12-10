@@ -33,40 +33,40 @@ const selectDevice = async () => {
 
 //create a function that runs for each of the enabled sensor measurements
 function showData() {
-    enabledSensors.forEach(sensor => {
-      //trigger a set of actions to occur whenever the value the sensor detects changes
+  enabledSensors.forEach(sensor => {
+    //trigger a set of actions to occur whenever the value the sensor detects changes
+    sensor.on("value-changed", sensor => {
+      document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(
+        2
+      )} ${sensor.unit}`;
       sensor.on("value-changed", sensor => {
-        document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(
-          2
-        )} ${sensor.unit}`;
-        sensor.on("value-changed", sensor => {
-          console.log("sensor on");
-        });
+        console.log("sensor on");
       });
     });
+  });
 }
 
 function chooseSensor() {
   try {
     // prompt the user for a channel input choice
     const channel = prompt("choose a sensor");
-    const sensor = gdxDevice.getSensor(parseInt(channel))
+    const sensor = gdxDevice.getSensor(parseInt(channel));
     // set the desired sensor according to the channel selection
     output.textContent += `\n\n Selected sensor: `;
     enabledSensors.forEach(sensor => {
-         if (enabledSensors=channel) {
-           // enable the selected sensor channel
-          sensor.setEnabled(true);
-         }
-        else {
-      sensor.setEnabled(false);
-    }
-    showData();}
-                          
-  catch (err) {
+      if ((enabledSensors == channel)) {
+        // enable the selected sensor channel
+        sensor.setEnabled(true);
+      } else {
+        sensor.setEnabled(false);
+      }
+    });
+    showData();
+  } catch (err) {
     console.error(err);
   }
-  };
+}
+
 const cutDevice = async () => {
   try {
     gdxDevice.close();
