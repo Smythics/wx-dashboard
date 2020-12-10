@@ -35,6 +35,9 @@ const selectDevice = async () => {
         });
       });
     });
+          // wait 3 seconds before starting the chooseSensor function
+      setTimeout(chooseSensor, 3000); 
+    
   } catch (err) {
     console.error(err);
   }
