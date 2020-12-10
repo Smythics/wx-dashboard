@@ -38,18 +38,15 @@ function chooseSensor() {
     const sensor = gdxDevice.getSensor(parseInt(channel));
     // set the desired sensor according to the channel selection
     output.textContent += `\n\n Selected sensor: `;
-    enabledSensors.forEach(sensor => {
-      //trigger a set of actions to occur whenever the value the sensor detects changes
-      sensor.on("value-changed", sensor => {
+    sensor.setEnabled(true);
+    sensor.on("value-changed", (sensor) => {
         document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(
           2
         )} ${sensor.unit}`;
-        sensor.on("value-changed", sensor => {
-          console.log("sensor on");
+        console.log("sensor on");
         });
-      });
     });
-  } catch (err) {
+catch (err) {
     console.error(err);
   }
 }
