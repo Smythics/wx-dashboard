@@ -45,11 +45,11 @@ function chooseSensor() {
         )} ${sensor.unit}`;
         console.log("sensor on");
         });
-    });
-catch (err) {
+    }
+ catch (err) {
     console.error(err);
   }
-}
+};
 
 const cutDevice = async () => {
   try {
