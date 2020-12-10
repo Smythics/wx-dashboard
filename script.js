@@ -16,13 +16,11 @@ const selectDevice = async () => {
     selectDeviceBtn.style.visibility = "hidden"; //hide select sensor button
     sensorData.style.visibility = "visible"; //make visible output from sensor
 
-    output.textContent += `\n Availiable sensors: (type the channel number into the alert box) `;
-
-    // enable all sensor to print info
+    // enable all sensors to output channel info
     enabledSensors = gdxDevice.sensors.filter(s => (s.enabled = true));
-
+    output.textContent += `\n Availiable sensors: (type the channel number into the alert box) `;
     enabledSensors.forEach(sensor => {
-      output.textContent += `\n\n Sensor: ${sensor.name} units: ${sensor.unit} channel: ${sensor.number} `;
+    output.textContent += `\n\n Sensor: ${sensor.name} units: ${sensor.unit} channel: ${sensor.number} `;
     });
     // wait 1 seconds before starting the chooseSensor function
     setTimeout(chooseSensor, 1000);
@@ -37,7 +35,7 @@ function chooseSensor() {
     const channel = prompt("choose a sensor");
     const sensor = gdxDevice.getSensor(parseInt(channel));
     // set the desired sensor according to the channel selection
-    //Note: "=" vs "+=" replaces existing text
+    //Note: "=" vs "+=" replaces existing text so the list of sensors doesn't appear
     output.textContent = `\n\n Selected sensor: ${sensor.name}`;
     sensor.setEnabled(true);
     sensor.on("value-changed", (sensor) => {
