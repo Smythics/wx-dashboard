@@ -50,24 +50,23 @@ function chooseSensor() {
   try {
     // prompt the user for a channel input choice
     const channel = prompt("choose a sensor");
+    const sensor = gdxDevice.getSensor(parseInt(channel))
     // set the desired sensor according to the channel selection
     output.textContent += `\n\n Selected sensor: `;
     enabledSensors.forEach(sensor => {
-         if () {
-          const sensor = gdxDevice.getSensor(parseInt(channel));
+         if (enabledSensors=channel) {
            // enable the selected sensor channel
           sensor.setEnabled(true);
          }
         else {
-      sensor.setEnabled(true);
+      sensor.setEnabled(false);
     }
-      ;}
-      
-    showData();
-  } catch (err) {
+    showData();}
+                          
+  catch (err) {
     console.error(err);
   }
-}
+  };
 const cutDevice = async () => {
   try {
     gdxDevice.close();
