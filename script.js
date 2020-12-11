@@ -33,15 +33,14 @@ function chooseSensor() {
   try {
     // prompt the user for a channel input choice
     const channel = prompt("choose a sensor");
-    const sensor = gdxDevice.getSensor(parseInt(channel));
     // set the desired sensor according to the channel selection
-    //Note: "=" vs "+=" replaces existing text so the list of sensors doesn't appear
-    output.textContent = `\n\n Selected sensor: ${sensor.name}`;
-    sensor.setEnabled(true);
+    const sensor = gdxDevice.getSensor(parseInt(channel));
+    // display the sensor channel name selected 
+    output.textContent = `\n\n Selected sensor: ${sensor.name}`; 
+    sensor.setEnabled(true); // enable the sensor
+    // push the sensor data to the "data" element on the web page
     sensor.on("value-changed", (sensor) => {
-        document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(
-          2
-        )} ${sensor.unit}`;
+        document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
         console.log("sensor on");
         });
     }
