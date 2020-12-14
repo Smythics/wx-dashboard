@@ -2,7 +2,7 @@
 const selectDeviceBtn = document.querySelector("#select_device"); //connect select device button to js variable
 const output = document.querySelector("#output"); // output
 const cutDeviceBtn = document.querySelector("#cut_device"); // disconnect device button
-const sensorData = document.querySelector("#data"); // sensor data
+const sensorData = document.querySelector("#data"); // sensor data element
 let gdxDevice;
 let enabledSensors;
 
@@ -32,7 +32,7 @@ const selectDevice = async () => {
 function chooseChannel() {
   try {
     // prompt the user for a channel input choice
-    const channel = prompt("choose a sensor");
+    const channel = prompt("choose a sensor channel");
     // set the desired sensor according to the channel selection
     const sensor = gdxDevice.getSensor(parseInt(channel));
     // display the sensor channel name selected 
