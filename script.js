@@ -22,14 +22,14 @@ const selectDevice = async () => {
     enabledSensors.forEach(sensor => {
     output.textContent += `\n\n Sensor: ${sensor.name} units: ${sensor.unit} channel: ${sensor.number} `;
     });
-    // wait 1 seconds before starting the chooseSensor function
-    setTimeout(chooseSensor, 1000);
+    // wait 1 seconds before starting the chooseChannel function
+    setTimeout(chooseChannel, 1000);
   } catch (err) {
     console.error(err);
   }
 };
 
-function chooseSensor() {
+function chooseChannel() {
   try {
     // prompt the user for a channel input choice
     const channel = prompt("choose a sensor");
