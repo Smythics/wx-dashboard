@@ -1,9 +1,7 @@
-Weather Dashboard Activity 2-3
+Weather Dashboard Activity 2-4
 =================
 
-In this activity you will add an element to show the sensor channels available 
-and then prompt the user to select the channel. The data from the sensor channel will 
-be live on the web page. 
-This activity involves the script.js file
+In this activity you will create a live graph of the data stream from the sensor. 
+This activity involves including tools from Chart.js
 
 This is part of Vernier Coding Activities with JavaScript: https://www.vernier.com/high-school/engineering/
