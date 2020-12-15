@@ -79,8 +79,8 @@ const cutDevice = async () => {
 				labels: [1,2,3,4,5,6,7,8,9,10],   
 				datasets: [{
 					label: '',
-					backgroundColor: window.chartColors.green,
-					borderColor: window.chartColors.green,
+					backgroundColor: window.chartColors.white,
+					borderColor: window.chartColors.black,
 					// initial data, sensor data to be added with addData function
 					data: [], 				
 					fill: false,

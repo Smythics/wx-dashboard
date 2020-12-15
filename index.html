@@ -32,6 +32,9 @@
         >Vernier Go Direct Weather Sensor
       </a>
     </h5>
+    <div style="width:75%; right:20px;">
+      <canvas id="canvas"></canvas>
+    </div>
     <!--create a button that will be used to choose from a list of available Go Direct sensors-->
     <button id="select_device" style="position:fixed; top:140px; left:20px;">
       Select Go Direct Device
@@ -44,8 +47,5 @@
     <!-- data from Go Direct sensor: sets formatting: see .css file for details of "span" -->
     <span id="data" style="visibility: hidden"> </span>
     <!-- Set up canvas for graph -->
-    <div style="width:75%; right: 20px">
-      <canvas id="canvas"></canvas>
-    </div>
   </body>
 </html>
