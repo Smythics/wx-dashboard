@@ -1,3 +1,8 @@
+//Chart formating
+window.chartColors = {
+			// create colors for chart to use
+			green: 'rgb(255, 99, 132)',
+		}; 
 //create constants that link to html elements
 const selectDeviceBtn = document.querySelector("#select_device"); //connect select device button to js variable
 const output = document.querySelector("#output"); // output
@@ -5,6 +10,7 @@ const cutDeviceBtn = document.querySelector("#cut_device"); // disconnect device
 const sensorData = document.querySelector("#data"); // sensor data element
 let gdxDevice;
 let enabledSensors;
+let sensorReadings=[];
 
 const selectDevice = async () => {
   try {
@@ -41,6 +47,9 @@ function chooseChannel() {
     // push the sensor data to the "data" element on the web page
     sensor.on("value-changed", (sensor) => {
         document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
+        sensorReadings.push(sensor.value);
+      let unit = sensor.unit;
+      addData(config, sensor.unit);
         console.log("sensor on");
         });
     }
@@ -61,6 +70,79 @@ const cutDevice = async () => {
     console.error(err);
   }
 };
+ // chart setup
+    let config = {
+		  // type of chart, could be 'line' or 'bar' 			
+			type: 'line', 		
+			data: {
+				// x axis labels
+				labels: [1,2,3,4,5,6,7,8,9,10],   
+				datasets: [{
+					label: '',
+					backgroundColor: window.chartColors.green,
+					borderColor: window.chartColors.green,
+					// initial data, sensor data to be added with addData function
+					data: [], 				
+					fill: false,
+				}]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Chart.js Line Chart'
+				},
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Time'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Value'
+						}
+					}]
+				}
+			}
+		}; 		
+    
+		window.onload = function() {
+			let ctx = document.getElementById('canvas').getContext('2d');
+			window.myLine = new Chart(ctx, config);
+		}; 
+		
+		let colorNames = Object.keys(window.chartColors);
+		
+			
+		config.data.datasets.forEach(function(dataset) {
+			// send the data to the dataset to be added to the line
+			dataset.data.pop();   
+		});
+
+function addData(chart, unit) { 
+			// label the chart with the units from the sensor
+			chart.data.label = unit; 			
+			// for each data point in the data set, add the sensorReading value
+			chart.data.datasets.forEach((dataset) => { 		
+				dataset.data.push(sensorReadings.pop());
+			});
+			
+			// update the chart line
+			window.myLine.update(); 		
+		}
 
 selectDeviceBtn.addEventListener("click", selectDevice); //opens selection window displaying available Go Direct sensors
 cutDeviceBtn.addEventListener("click", cutDevice); //disconnects sensor device
