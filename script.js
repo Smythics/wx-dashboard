@@ -1,7 +1,7 @@
 //Chart formating
 window.chartColors = {
 			// create colors for chart to use
-			green: 'rgb(255, 99, 132)',
+			green: 'rgb(255, 99, 132)', white:'rgb(0,0,0)', black: 'rgb(255, 255, 255)'
 		}; 
 //create constants that link to html elements
 const selectDeviceBtn = document.querySelector("#select_device"); //connect select device button to js variable
@@ -79,7 +79,7 @@ const cutDevice = async () => {
 				labels: [1,2,3,4,5,6,7,8,9,10],   
 				datasets: [{
 					label: '',
-					backgroundColor: window.chartColors.white,
+					backgroundColor: window.chartColors.black,
 					borderColor: window.chartColors.black,
 					// initial data, sensor data to be added with addData function
 					data: [], 				
