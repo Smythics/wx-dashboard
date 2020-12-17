@@ -8,6 +8,7 @@ const selectDeviceBtn = document.querySelector("#select_device"); //connect sele
 const output = document.querySelector("#output"); // output
 const cutDeviceBtn = document.querySelector("#cut_device"); // disconnect device button
 const sensorData = document.querySelector("#data"); // sensor data element
+//const Chart = document.querySelector("#canvas");
 let gdxDevice;
 let enabledSensors;
 let time;
@@ -50,7 +51,7 @@ function chooseChannel() {
         document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
      // time=time+1; // creates a time stamp for each sensor value
         sensorReadings.push(sensor.value);
-      let unit = sensor.unit;
+     // let unit = sensor.unit;
       addData(config, sensor.unit);
         console.log("sensor on");
         });
