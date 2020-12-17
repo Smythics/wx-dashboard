@@ -10,6 +10,7 @@ const cutDeviceBtn = document.querySelector("#cut_device"); // disconnect device
 const sensorData = document.querySelector("#data"); // sensor data element
 let gdxDevice;
 let enabledSensors;
+let time;
 let sensorReadings=[];
 
 const selectDevice = async () => {
@@ -18,6 +19,7 @@ const selectDevice = async () => {
     gdxDevice = await godirect.selectDevice();
     // print name and serial number
     output.textContent = `\n Connected to ` + gdxDevice.name;
+    gdxDevice.start(1000); // sets sampling rate to 1 second
     cutDeviceBtn.style.visibility = "visible"; //make button visible to deselect sensor
     selectDeviceBtn.style.visibility = "hidden"; //hide select sensor button
     sensorData.style.visibility = "visible"; //make visible output from sensor
@@ -47,9 +49,10 @@ function chooseChannel() {
     // push the sensor data to the "data" element on the web page
     sensor.on("value-changed", (sensor) => {
         document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
-        sensorReadings.push(sensor.value);
+      time=time+1; // creates a time stamp for each sensor value
+        sensorReadings.push(time, sensor.value);
       let unit = sensor.unit;
-      addData(config, sensor.unit);
+      addData(config, time, sensor.unit);
         console.log("sensor on");
         });
     }
@@ -76,9 +79,9 @@ const cutDevice = async () => {
 			type: 'line', 		
 			data: {
 				// x axis labels
-				labels: [1,2,3,4,5,6,7,8,9,10],   
+				labels: [time],   
 				datasets: [{
-					label: '',
+					label: 'Time',
 					backgroundColor: window.chartColors.black,
 					borderColor: window.chartColors.black,
 					// initial data, sensor data to be added with addData function
