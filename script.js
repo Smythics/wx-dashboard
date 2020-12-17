@@ -23,7 +23,6 @@ const selectDevice = async () => {
     cutDeviceBtn.style.visibility = "visible"; //make button visible to deselect sensor
     selectDeviceBtn.style.visibility = "hidden"; //hide select sensor button
     sensorData.style.visibility = "visible"; //make visible output from sensor
-
     // enable all sensors to output channel info
     enabledSensors = gdxDevice.sensors.filter(s => (s.enabled = true));
     output.textContent += `\n Availiable sensors: (type the channel number into the alert box) `;
@@ -116,7 +115,7 @@ const cutDevice = async () => {
 						display: true,
 						scaleLabel: {
 							display: true,
-							labelString: sensorName
+							labelString: 'Value'
 						}
 					}]
 				}
