@@ -75,6 +75,7 @@ const cutDevice = async () => {
 };
  // chart setup
     let config = {
+
 		  // type of chart, could be 'line' or 'bar' 			
 			type: 'line', 		
 			data: {
@@ -115,7 +116,7 @@ const cutDevice = async () => {
 						display: true,
 						scaleLabel: {
 							display: true,
-							labelString: 'Value'
+							labelString: sensorName
 						}
 					}]
 				}
