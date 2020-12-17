@@ -1,7 +1,7 @@
 //Chart formating
 window.chartColors = {
 			// create colors for chart to use
-			green: 'rgb(255, 99, 132)', white:'rgb(0,0,0)', black: 'rgb(255, 255, 255)'
+			green: 'rgb(255, 99, 132)', white:'rgb(255,255,255)', black: 'rgb(0, 0, 0)'
 		}; 
 //create constants that link to html elements
 const selectDeviceBtn = document.querySelector("#select_device"); //connect select device button to js variable
