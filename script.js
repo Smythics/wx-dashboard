@@ -49,10 +49,10 @@ function chooseChannel() {
     // push the sensor data to the "data" element on the web page
     sensor.on("value-changed", (sensor) => {
         document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
-      time=time+1; // creates a time stamp for each sensor value
-        sensorReadings.push(time, sensor.value);
+     // time=time+1; // creates a time stamp for each sensor value
+        sensorReadings.push(sensor.value);
       let unit = sensor.unit;
-      addData(config, time, sensor.unit);
+      addData(config, sensor.unit);
         console.log("sensor on");
         });
     }
@@ -79,7 +79,7 @@ const cutDevice = async () => {
 			type: 'line', 		
 			data: {
 				// x axis labels
-				labels: [time],   
+				labels: [],   
 				datasets: [{
 					label: 'Time',
 					backgroundColor: window.chartColors.black,
