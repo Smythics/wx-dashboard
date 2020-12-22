@@ -103,7 +103,7 @@ const cutDevice = async () => {
 					text: 'Chart.js Line Chart'
 				},
 				tooltips: {
-					mode: 'index',
+					mode: 'index',//forces x-axis as 
 					intersect: false,
 				},
 				hover: {
