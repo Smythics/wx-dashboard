@@ -8,10 +8,11 @@ const selectDeviceBtn = document.querySelector("#select_device"); //connect sele
 const output = document.querySelector("#output"); // output
 const cutDeviceBtn = document.querySelector("#cut_device"); // disconnect device button
 const sensorData = document.querySelector("#data"); // sensor data element
-//const Chart = document.querySelector("#canvas");
+const canvas = document.querySelector("#canvas"); 
+
 let gdxDevice;
 let enabledSensors;
-let time;
+let time=[];
 let sensorReadings=[];
 
 const selectDevice = async () => {
@@ -80,7 +81,7 @@ const cutDevice = async () => {
 			type: 'line', 		
 			data: {
 				// x axis labels
-				labels: [],   
+				labels: [time],   
 				datasets: [{
 					label: 'Time',
 					backgroundColor: window.chartColors.black,
