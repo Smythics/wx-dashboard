@@ -91,7 +91,12 @@ const cutDevice = async () => {
 					fill: false,
 				}]
 			},
-			options: {
+      elements: {
+            line: {
+                tension: 0 // disables bezier curves
+            }
+      },
+      options: {
 				responsive: true,
 				title: {
 					display: true,
