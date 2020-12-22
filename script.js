@@ -8,7 +8,7 @@ const selectDeviceBtn = document.querySelector("#select_device"); //connect sele
 const output = document.querySelector("#output"); // output
 const cutDeviceBtn = document.querySelector("#cut_device"); // disconnect device button
 const sensorData = document.querySelector("#data"); // sensor data element
-var myChart = document.querySelector("#myChart"); 
+//var myChart = document.querySelector("#myChart"); 
 
 let gdxDevice;
 let enabledSensors;
