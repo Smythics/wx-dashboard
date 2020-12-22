@@ -12,7 +12,7 @@ const sensorData = document.querySelector("#data"); // sensor data element
 
 let gdxDevice;
 let enabledSensors;
-let time=[];
+let time=[0];
 let sensorReadings=[];
 
 const selectDevice = async () => {
@@ -39,6 +39,7 @@ const selectDevice = async () => {
 };
 
 function chooseChannel() {
+  var i=0;
   try {
     // prompt the user for a channel input choice
     const channel = prompt("choose a sensor channel");
@@ -50,7 +51,8 @@ function chooseChannel() {
     // push the sensor data to the "data" element on the web page
     sensor.on("value-changed", (sensor) => {
         document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
-     // time=time+1; // creates a time stamp for each sensor value
+      time.push(i);//i represents time stamp tied to data sampling rate "gdxDevice.start(1000);"
+      i++; // creates a time stamp for each sensor value
         sensorReadings.push(sensor.value);
      // let unit = sensor.unit;
       addData(config, sensor.unit);
@@ -81,7 +83,7 @@ const cutDevice = async () => {
 			type: 'line', 		
 			data: {
 				// x axis labels
-				labels: [],   
+				labels: time,   
 				datasets: [{
 					label: '',
 					backgroundColor: window.chartColors.black,
