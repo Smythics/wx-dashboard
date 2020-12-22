@@ -81,7 +81,7 @@ const cutDevice = async () => {
 			type: 'line', 		
 			data: {
 				// x axis labels
-				labels: [time],   
+				labels: [],   
 				datasets: [{
 					label: '',
 					backgroundColor: window.chartColors.black,
@@ -117,7 +117,7 @@ const cutDevice = async () => {
 						display: true,
 						scaleLabel: {
 							display: true,
-							labelString: 'Value'
+							labelString: 'Sensor Value'
 						}
 					}]
 				}
