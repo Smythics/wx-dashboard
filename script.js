@@ -41,6 +41,7 @@ const selectDevice = async () => {
 function chooseChannel() {
   var i=0;
   try {
+    
     // prompt the user for a channel input choice
     const channel = prompt("choose a sensor channel");
     // set the desired sensor according to the channel selection
@@ -95,7 +96,7 @@ const cutDevice = async () => {
 			},
       elements: {
             line: {
-                tension: 0 // disables bezier curves
+                tension: 0 // disables bezier curves so the max and min on the graph are true
             }
       },
       options: {
