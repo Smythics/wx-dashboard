@@ -88,7 +88,7 @@ const cutDevice = async () => {
 				datasets: [{
 					label: 'Sensor Value',
 					backgroundColor: window.chartColors.black,
-					borderColor: window.chartColors.black,
+					//borderColor: window.chartColors.black,
 					// initial data, sensor data to be added with addData function
 					data: [], 				
 					fill: false,
@@ -138,8 +138,7 @@ const cutDevice = async () => {
 		}; 
 		
 		let colorNames = Object.keys(window.chartColors);
-		
-			
+					
 		config.data.datasets.forEach(function(dataset) {
 			// send the data to the dataset to be added to the line
 			dataset.data.pop();   
@@ -157,7 +156,7 @@ function addData(chart, unit) {
 		}
 function clearData(chart){
   for (var i=0; i < sensorReadings.length; i++) {
-  chart.dataset.data.pop;
+  chart.dataset.data.pop();
 }
 }
 selectDeviceBtn.addEventListener("click", selectDevice); //opens selection window displaying available Go Direct sensors
