@@ -151,13 +151,12 @@ function addData(chart, unit) {
 			chart.data.datasets.forEach((dataset) => { 		
 				dataset.data.push(sensorReadings.pop());
 			});
-			
 			// update the chart line
 			window.myLine.update(); 		
 		}
-function clearData(){
-  for (i=0; i < sensorReadings.length; i++) {
-  text += cars[i] + "<br>";
+function clearData(chart){
+  for (var i=0; i < sensorReadings.length; i++) {
+  chart.dataset.data.pop;
 }
 }
 selectDeviceBtn.addEventListener("click", selectDevice); //opens selection window displaying available Go Direct sensors
