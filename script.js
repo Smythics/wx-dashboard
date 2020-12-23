@@ -41,7 +41,6 @@ const selectDevice = async () => {
 function chooseChannel() {
   var i=0;
   try {
-    
     // prompt the user for a channel input choice
     const channel = prompt("choose a sensor channel");
     // set the desired sensor according to the channel selection
@@ -156,6 +155,8 @@ function addData(chart, unit) {
 			// update the chart line
 			window.myLine.update(); 		
 		}
-
+function clearData(){
+  
+}
 selectDeviceBtn.addEventListener("click", selectDevice); //opens selection window displaying available Go Direct sensors
 cutDeviceBtn.addEventListener("click", cutDevice); //disconnects sensor device
