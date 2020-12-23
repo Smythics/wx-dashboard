@@ -85,7 +85,7 @@ const cutDevice = async () => {
 				// x axis labels
 				labels: time,   
 				datasets: [{
-					label: '',
+					label: 'Sensor Value',
 					backgroundColor: window.chartColors.black,
 					borderColor: window.chartColors.black,
 					// initial data, sensor data to be added with addData function
