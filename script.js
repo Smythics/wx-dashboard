@@ -156,7 +156,9 @@ function addData(chart, unit) {
 			window.myLine.update(); 		
 		}
 function clearData(){
-  
+  for (i=0; i < sensorReadings.length; i++) {
+  text += cars[i] + "<br>";
+}
 }
 selectDeviceBtn.addEventListener("click", selectDevice); //opens selection window displaying available Go Direct sensors
 cutDeviceBtn.addEventListener("click", cutDevice); //disconnects sensor device
