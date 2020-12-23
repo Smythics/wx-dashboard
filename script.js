@@ -46,6 +46,7 @@ function chooseChannel() {
     // set the desired sensor according to the channel selection
     const sensor = gdxDevice.getSensor(parseInt(channel));
     // display the sensor channel name selected 
+    clearData();
     output.textContent = `\n\n Selected sensor: ${sensor.name}`; 
     sensor.setEnabled(true); // enable the sensor
     // push the sensor data to the "data" element on the web page
