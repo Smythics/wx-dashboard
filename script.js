@@ -56,7 +56,7 @@ function chooseChannel() {
     // push the sensor data to the "data" element on the web page
     sensor.on("value-changed", sensor => {
       document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
-      time.push(i); //i represents time stamp tied to data sampling rate"
+      time.push(i); //i represents time stamp tied to data sampling rate
       i = i + frequency; // creates next time stamp
       sensorReadings.push(sensor.value.toFixed(2));
       addData(config, sensor.unit);
@@ -98,7 +98,7 @@ let config = {
   elements: {
     line: {
       tension: 0 // disables bezier curves so the max and min on the graph are true
-    }
+      }
   },
   options: {
     responsive: true,
