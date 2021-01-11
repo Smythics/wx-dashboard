@@ -14,6 +14,7 @@ let gdxDevice;
 let enabledSensors;
 let time=[0];
 let sensorReadings=[];
+const samplingRate=500; //seconds per sample in ms
 
 const selectDevice = async () => {
   try {
@@ -21,7 +22,7 @@ const selectDevice = async () => {
     gdxDevice = await godirect.selectDevice();
     // print name and serial number
     output.textContent = `\n Connected to ` + gdxDevice.name;
-    gdxDevice.start(1000); // sets sampling rate to 1 second
+    gdxDevice.start(samplingRate); // sets sampling rate 
     cutDeviceBtn.style.visibility = "visible"; //make button visible to deselect sensor
     selectDeviceBtn.style.visibility = "hidden"; //hide select sensor button
     sensorData.style.visibility = "visible"; //make visible output from sensor
@@ -52,6 +53,7 @@ function chooseChannel() {
     // push the sensor data to the "data" element on the web page
     sensor.on("value-changed", (sensor) => {
         document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
+      const period = i*samplingRate/1000; 
       time.push(i);//i represents time stamp tied to data sampling rate "gdxDevice.start(1000);"
       i++; // creates a time stamp for each sensor value
         sensorReadings.push(sensor.value);
@@ -68,7 +70,6 @@ function chooseChannel() {
 const cutDevice = async () => {
   try {
     gdxDevice.close();
-    clearData();
     document.getElementById("data").innerHTML = "No Data";
     output.textContent = `\n Disconnected from ` + gdxDevice.name;
     selectDeviceBtn.style.visibility = "visible";
