@@ -77,7 +77,7 @@ const cutDevice = async () => {
     console.error(err);
   }
 };
- // chart setup
+ // chart setup and appearance
     let config = {
 
 		  // type of chart, could be 'line' or 'bar' 			
@@ -88,8 +88,6 @@ const cutDevice = async () => {
 				datasets: [{
 					label: 'Sensor Value',
 					backgroundColor: window.chartColors.black,
-					//borderColor: window.chartColors.black,
-					// initial data, sensor data to be added with addData function
 					data: [], 				
 					fill: false,
 				}]
@@ -131,7 +129,7 @@ const cutDevice = async () => {
 				}
 			}
 		}; 		
-    
+    //
 		window.onload = function() {
 			let ctx = document.getElementById('canvas').getContext('2d');
 			window.myLine = new Chart(ctx, config);
