@@ -12,9 +12,10 @@ const sensorData = document.querySelector("#data"); // sensor data element
 
 let gdxDevice;
 let enabledSensors;
-let time=[0];
+let time=[];
 let sensorReadings=[];
 const samplingRate=500; //seconds per sample in ms
+const frequency=samplingRate/1000;
 
 const selectDevice = async () => {
   try {
@@ -53,9 +54,8 @@ function chooseChannel() {
     // push the sensor data to the "data" element on the web page
     sensor.on("value-changed", (sensor) => {
         document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
-      const period = i*samplingRate/1000; 
       time.push(i);//i represents time stamp tied to data sampling rate "gdxDevice.start(1000);"
-      i++; // creates a time stamp for each sensor value
+      i=i+frequency; // creates a time stamp for each sensor value
         sensorReadings.push(sensor.value);
      // let unit = sensor.unit;
       addData(config, sensor.unit);
