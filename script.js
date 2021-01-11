@@ -56,8 +56,8 @@ function chooseChannel() {
     // push the sensor data to the "data" element on the web page
     sensor.on("value-changed", sensor => {
       document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
-      time.push(i); //i represents time stamp tied to data sampling rate
-      i = i + frequency; // creates next time stamp
+      time.push(i.toPrecision(3)); //i represents time stamp tied to data sampling rate
+      i = i + frequency;// creates next time stamp
       sensorReadings.push(sensor.value.toFixed(2));
       addData(config, sensor.unit);
       console.log("sensor on");
