@@ -23,7 +23,7 @@ const selectDevice = async () => {
     gdxDevice = await godirect.selectDevice();
     // print name and serial number
     output.textContent = `\n Connected to ` + gdxDevice.name;
-    gdxDevice.start(samplingRate); // sets sampling rate 
+    gdxDevice.start(samplingRate); // sets sampling rate
     cutDeviceBtn.style.visibility = "visible"; //make button visible to deselect sensor
     selectDeviceBtn.style.visibility = "hidden"; //hide select sensor button
     sensorData.style.visibility = "visible"; //make visible output from sensor
@@ -56,7 +56,8 @@ function chooseChannel() {
         document.getElementById("data").innerHTML = `\n ${sensor.value.toFixed(2)} ${sensor.unit}`;
       time.push(i);//i represents time stamp tied to data sampling rate "gdxDevice.start(1000);"
       i=i+frequency; // creates a time stamp for each sensor value
-        sensorReadings.push(sensor.value);
+        sensorReadings.push(sensor.value.toFixed(2));
+      //i++; //increment time stamp
      // let unit = sensor.unit;
       addData(config, sensor.unit);
         console.log("sensor on");
@@ -86,7 +87,7 @@ const cutDevice = async () => {
 			type: 'line', 		
 			data: {
 				// x axis labels
-				labels: time,   
+				labels: time,   //uses time[] array for x-axis values
 				datasets: [{
 					label: 'Sensor Value',
 					backgroundColor: window.chartColors.black,
