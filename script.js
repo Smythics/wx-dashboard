@@ -68,6 +68,7 @@ function chooseChannel() {
 const cutDevice = async () => {
   try {
     gdxDevice.close();
+    clearData();
     document.getElementById("data").innerHTML = "No Data";
     output.textContent = `\n Disconnected from ` + gdxDevice.name;
     selectDeviceBtn.style.visibility = "visible";
@@ -156,6 +157,8 @@ function clearData(chart){
   for (var i=0; i < sensorReadings.length; i++) {
   chart.dataset.data.pop();
 }
+  window.myLine.update();
 }
+
 selectDeviceBtn.addEventListener("click", selectDevice); //opens selection window displaying available Go Direct sensors
 cutDeviceBtn.addEventListener("click", cutDevice); //disconnects sensor device
