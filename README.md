@@ -1,4 +1,4 @@
-Weather Dashboard Activity 2-4
+Weather Dashboard Activity 2-5
 =================
 
 In this activity you will create a live graph of the data stream from the sensor. 
